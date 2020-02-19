@@ -21,7 +21,7 @@ library(glue)
 
 # ======================================================================
 # These variables determine how the the data is loaded and how the exports are
-# done.
+# done. x
 
 # Is data stored in google sheets? If no data will be gather from the csvs/
 # folder in project
