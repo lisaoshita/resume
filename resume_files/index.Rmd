@@ -99,9 +99,9 @@ Lisa Oshita {#title}
 
 
 ```{r intro}
-intro_text <- "Data Scientist with Statistics degree and ecommerce experience"
-
-cat(sanitize_links(intro_text))
+# intro_text <- "Data Scientist with Statistics degree and ecommerce experience"
+# 
+# cat(sanitize_links(intro_text))
 ```
 
 Experience {data-icon=laptop}
