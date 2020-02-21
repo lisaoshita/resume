@@ -1,0 +1,121 @@
+---
+title: "Lisa Oshita"
+author: Lisa Oshita
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+params:
+  PDF_EXPORT: FALSE
+---
+
+```{r doc_setup, include=FALSE}
+knitr::opts_chunk$set(
+  results = "asis",
+  echo = FALSE
+)
+
+library(tidyverse)
+library(glue)
+library(googlesheets4)
+
+
+using_googlesheets <- TRUE
+# Just the copied URL from the sheet
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1QKP2Tv7nwoChjjBbDifHrzLZjiPyPWzZnF5a0PUICuY/"
+# Is this sheet available for anyone to read? If you're using a private sheet
+# set this to false and go to gather_data.R and run the data loading manually
+# once to cache authentication
+sheet_is_publicly_readable <- TRUE
+# Is the goal of this knit to build a document that is exported to PDF? If so
+# set this to true to have links turned into footnotes at the end of the
+# document
+PDF_EXPORT <- TRUE
+CV_PDF_LOC <- "https://github.com/lisaoshita/resume/resume_files/oshita_resume.pdf"
+CV_HTML_LOC <- "nickstrayer.me/cv/"
+# A global (gasp) variable that holds all the links that were inserted for
+# placement at the end
+links <- c()
+# ======================================================================
+# Now we source two external scripts. One contains functions for building the
+# text output and the other loads up our data from either googlesheets or csvs
+# Functions for building sections from CSV data
+
+source('parsing_functions.R') 
+# Load data for CV/Resume
+source('gather_data.R')
+# position_data <- read_sheet(positions_sheet_loc, sheet = "positions")
+```
+
+
+```{r pdf_export}
+# When in export mode the little dots are unaligned, so fix that. Make links black too.
+if (PDF_EXPORT) {
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  
+  a {
+  color: black;
+}
+  </style>
+  ")
+}
+```
+
+
+Aside
+================================================================================
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+
+- <i class="fa fa-envelope"></i> lisa.oshita@gmail.com
+- <i class="fa fa-github"></i> [github.com/lisaoshita](https://github.com/lisaoshita)
+- <i class="fa fa-phone"></i> ####
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+- R (tidyverse, Shiny)
+- SQL (Redshift)
+- Visualization
+- Machine Learning
+- A/B Testing
+- Looker
+- Git
+- Python
+
+Main
+================================================================================
+
+Lisa Oshita {#title}
+--------------------------------------------------------------------------------
+
+```{r}
+intro_text <- "Objective: A fulltime position in data science on a highly collaborative, diverse, driven team. Seeking mentorship via senior data scientists and analyst."
+cat(sanitize_links(intro_text))
+```
+
+
+Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+```{r experience}
+print_section(position_data, "industry_positions")
+```
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r edu}
+print_section(position_data, "education")
+```
+
+
