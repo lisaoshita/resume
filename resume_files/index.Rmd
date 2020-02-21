@@ -24,7 +24,7 @@ library(googlesheets4)
 
 using_googlesheets <- TRUE
 # Just the copied URL from the sheet
-positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1YnDZgu4uWDPKv2ssfD1Nzhj56RjHL1vhRqjDv1Goi9U/"
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1QKP2Tv7nwoChjjBbDifHrzLZjiPyPWzZnF5a0PUICuY/"
 # Is this sheet available for anyone to read? If you're using a private sheet
 # set this to false and go to gather_data.R and run the data loading manually
 # once to cache authentication
@@ -77,11 +77,12 @@ Contact {#contact}
 
 - <i class="fa fa-envelope"></i> lisa.oshita@gmail.com
 - <i class="fa fa-github"></i> [github.com/lisaoshita](https://github.com/lisaoshita)
+- <i class="fa fa-phone"></i> #####
 
 Skills {#skills}
 --------------------------------------------------------------------------------
 
-- R
+- R (tidyverse, Shiny)
 - SQL 
 - Visualization
 - Statistics
@@ -96,6 +97,12 @@ Main
 
 Lisa Oshita {#title}
 --------------------------------------------------------------------------------
+
+```{r}
+intro_text <- ""
+cat(sanitize_links(intro_text))
+```
+
 
 Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
