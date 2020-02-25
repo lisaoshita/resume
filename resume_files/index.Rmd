@@ -77,7 +77,7 @@ Contact {#contact}
 
 - <i class="fa fa-envelope"></i> lisa.oshita@gmail.com
 - <i class="fa fa-github"></i> [github.com/lisaoshita](https://github.com/lisaoshita)
-- <i class="fa fa-phone"></i> ####
+- <i class="fa fa-phone"></i> ###
 
 Skills {#skills}
 --------------------------------------------------------------------------------
@@ -98,7 +98,7 @@ Lisa Oshita {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "Objective: A fulltime position in data science on a highly collaborative, diverse, driven team. Seeking mentorship via senior data scientists and analyst."
+intro_text <- "Objective: A full-time position in data science on a highly collaborative, diverse, driven team. Seeking mentorship via senior data scientists and analyst."
 cat(sanitize_links(intro_text))
 ```
 
